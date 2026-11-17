@@ -2,6 +2,8 @@
 
 AI Workload is a local planning workbench for inference deployment. It combines a model catalog, a GPU catalog, and an inference designer that estimates memory, parallelism, and prefill/decode performance.
 
+![Inference designer for Qwen2.5-72B on H100 SXM](images/workload-designer.png)
+
 The project is still in development. Version 1.0 is planned for 2027. This repository publishes the current 0.1.0 line so it can be run, reviewed, and iterated in the open.
 
 The application has no login. It listens only on `127.0.0.1`.
