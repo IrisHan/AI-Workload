@@ -1,0 +1,44 @@
+{
+  "time": "2026-11-02T15:25:43.228083+08:00",
+  "tables": {
+    "model_versions": {
+      "rows": 66,
+      "content_sha256": "71db1131028700c7d40f25f3960a8194e51732d4e75828682e8b391f0c5a852b"
+    },
+    "hardware_versions": {
+      "rows": 12,
+      "content_sha256": "386646ab3082a4c1be2352b318de50241bb0a0e965060479cc4a0960f8c25c37"
+    },
+    "model_structure_snapshots": {
+      "rows": 285,
+      "content_sha256": "fec6ee034d3617ae620cc69d3bf10033c3a08dbb057b3269302e3e11875afe01"
+    },
+    "workload_designs": {
+      "rows": 3,
+      "content_sha256": "59c9cf33287a36755091fe1d8df4acf4bab2e755ccadb0a96af7f791d1c89bba"
+    },
+    "workload_design_revisions": {
+      "rows": 12,
+      "content_sha256": "9ba391fc7d2087ffb146c85d73d28a5f58b0d499fa2364b4f668eefc60b4a95d"
+    },
+    "workload_runs": {
+      "rows": 16,
+      "content_sha256": "ccae70f4ff4d3f11b3f4c35d037b2617ec03672a03dc881d3f1d28573a387701"
+    },
+    "workload_plans": {
+      "rows": 24,
+      "content_sha256": "7159f0edb48b7ac35e9f5d5ecb2a3f191b6025e4ac9eaf7f4088e966ec665cbe"
+    },
+    "workload_plan_details": {
+      "rows": 273,
+      "content_sha256": "b02db51cc17a65a2f689982b4ffe620e709d912ea11dffd2ea68972b12f53036"
+    },
+    "alembic_version": {
+      "rows": 1,
+      "content_sha256": "6dbc3f85f6b5fe704705e9ac7978de5373f6505360bc49402bf35ce346cd301a"
+    }
+  },
+  "integrity_check": "ok",
+  "foreign_key_check": [],
+  "schema_check": "all tables matched"
+}

@@ -1,0 +1,79 @@
+entries:
+  rmsnorm:
+    title: RMSNorm
+    summary: Root-mean-square layer normalization. Scale-only affine (no mean subtraction, no bias).
+    formula: "y = x / RMS(x) * γ"
+    docs_refs:
+      - https://arxiv.org/abs/1910.07467
+  layernorm:
+    title: LayerNorm
+    summary: Standard layer normalization with learned scale and bias; subtracts mean then divides by std.
+    docs_refs:
+      - https://arxiv.org/abs/1607.06450
+  rope:
+    title: RoPE
+    summary: Rotary position embedding. Applies a position-dependent rotation to Q/K pairs instead of adding a learned table.
+    docs_refs:
+      - https://arxiv.org/abs/2104.09864
+  yarn:
+    title: YaRN
+    summary: Yet another RoPE extension. Interpolates rotary frequencies to stretch context beyond the original training window.
+    docs_refs:
+      - https://arxiv.org/abs/2309.00071
+  rope-llama3:
+    title: Llama 3 RoPE scaling
+    summary: Frequency-band aware RoPE scaling used by Llama 3.1/3.2 for 128K context.
+  alibi:
+    title: ALiBi
+    summary: Attention with linear biases. Distance-dependent penalty added to attention scores; no extra position parameters.
+  mha:
+    title: Multi-Head Attention
+    summary: Full Q/K/V heads. KV cache grows with n_heads × head_dim × 2.
+  gqa:
+    title: Grouped-Query Attention
+    summary: Fewer KV heads than Q heads. Groups of Q heads share a KV head; smaller KV cache than MHA.
+    docs_refs:
+      - https://arxiv.org/abs/2305.13245
+  mqa:
+    title: Multi-Query Attention
+    summary: Single KV head shared by all Q heads. Extreme KV compression.
+  mla:
+    title: Multi-head Latent Attention
+    summary: DeepSeek-V2/V3 attention. Compresses KV into a low-rank latent (kv_lora_rank) plus a decoupled RoPE slice.
+    docs_refs:
+      - https://arxiv.org/abs/2405.04434
+  swa:
+    title: Sliding Window Attention
+    summary: Each token only attends to a local window. Used alone or interleaved with global layers.
+  csa-hca:
+    title: CSA / HCA
+    summary: DeepSeek-V4 compressed sparse / heavily compressed attention. Recognized from compress_ratios; not expanded in phase 1.
+    docs_refs:
+      - https://arxiv.org/html/2606.19348
+  dense-ffn:
+    title: Dense FFN
+    summary: Every token hits the same feed-forward. SwiGLU uses three matrices (gate/up/down).
+  moe:
+    title: Mixture of Experts
+    summary: A router picks top-k experts per token. Total params count all experts; active params count only the selected ones plus shared.
+  shared-expert:
+    title: Shared expert
+    summary: Always-on expert computed for every token in addition to the routed top-k.
+  mtp:
+    title: Multi-Token Prediction
+    summary: Extra transformer block(s) that predict the next-n token. Usually omitted from the card parameter count; can be loaded for speculative decoding.
+  mhc:
+    title: Manifold-Constrained Hyper-Connections
+    summary: Residual streams expanded and projected onto a doubly-stochastic manifold (Sinkhorn). Detected, not fully counted in phase 1.
+  qk-norm:
+    title: QK-Norm
+    summary: RMSNorm on query/key heads before attention logits. Stabilizes training at larger scales.
+  scoring:
+    title: Router scoring
+    summary: How expert affinities are computed (softmax, sigmoid, sqrt-softplus, …).
+  residual-add:
+    title: Residual add
+    summary: Standard x + sublayer(x) skip connection.
+  quant:
+    title: Quantization
+    summary: Weight dtype from quantization_config / expert_dtype. Used only for byte estimates, not for changing param counts.

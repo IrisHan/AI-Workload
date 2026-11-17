@@ -1,0 +1,80 @@
+.architecture-atlas { min-width: 0; color: #24292f; }
+.arch-title { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 0 20px; }
+.arch-title h2 { font-size: 20px; margin: 0; }
+.arch-grid { display: flex; flex-direction: column; gap: 24px; }
+.arch-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 24px; align-items: stretch; }
+.arch-section { min-width: 0; display: flex; flex-direction: column; border-bottom: 1px solid #dce3df; scroll-margin-top: 20px; }
+.arch-section h3 { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; margin: 0; padding: 13px 16px; border-block: 1px solid #dce3df; font-size: 14px; line-height: 20px; background: #f5f8f7; }
+.arch-section-number { color: #087f68; font-size: 13px; }
+.arch-section-3 h3, .arch-section-4 h3 { background: #f8f5f9; border-color: #e8deeb; }
+.arch-section-5 h3, .arch-section-6 h3 { background: #f3f8fb; border-color: #dce8ed; }
+.arch-section-body { display: flex; flex-direction: column; flex: 1; min-width: 0; padding: 18px 12px 20px; }
+.arch-content { min-width: 0; }
+.arch-content p { font-size: 12px; line-height: 1.8; margin: 12px 0; overflow-wrap: anywhere; }
+.arch-content p:first-child { margin-top: 0; }
+.arch-content p:last-child { margin-bottom: 0; }
+.arch-content table { font-size: 12px; }
+.arch-content th { font-size: 11px; }
+.arch-content th, .arch-content td { padding: 10px 9px; white-space: normal; overflow-wrap: anywhere; }
+.arch-content td:first-child { color: #53615b; }
+.arch-content .table-scroll { margin: 0 0 16px; }
+.arch-content .table-scroll:last-child { margin-bottom: 0; }
+.arch-section-1 .arch-content table td:first-child { width: 35%; }
+.arch-section-1 .arch-content td { padding-block: 12px; }
+.arch-chip-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; gap: 20px; min-width: 0; }
+.arch-chip-resources, .arch-chip-table { min-width: 0; }
+.arch-chip-table table { min-width: 310px; }
+.arch-chip-table th, .arch-chip-table td { font-size: 11px; padding: 9px 7px; }
+.arch-chip-table td:first-child { min-width: 72px; }
+.arch-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; background: white; border-top: 1px solid #e3e6e8; }
+.arch-fact { min-width: 0; display: flex; flex-direction: column; justify-content: center; padding: 14px 2px; gap: 10px; min-height: 85px; overflow-wrap: anywhere; border-bottom: 1px solid #e3e6e8; }
+.arch-fact-label { font-size: 12px; color: #58636a; line-height: 1.5; }
+.arch-fact strong { font-size: 20px; color: #087f68; line-height: 1.3; font-weight: 600; font-variant-numeric: tabular-nums; }
+.arch-sm-facts { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 20px; }
+.arch-sm-facts .arch-fact { min-height: 94px; }
+.arch-sm-facts .arch-fact strong { font-size: 17px; color: #7e5688; }
+.arch-organization { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 24px 0 0; }
+.arch-organization > div { display: flex; align-items: center; gap: 6px; }
+.arch-organization span { border-block: 2px solid #8aaea3; padding: 9px 10px; font-size: 12px; background: #f7faf9; }
+.arch-technical-footer { padding-top: 16px; margin-top: auto; min-width: 0; }
+.arch-technical-footer p { margin: 0; padding-top: 14px; border-top: 1px solid #e8ecea; font-size: 12px; line-height: 1.85; color: #4f5d56; overflow-wrap: anywhere; }
+.arch-section-2 .arch-technical-footer { padding-top: 20px; }
+.arch-memory { margin: 0; }
+.arch-memory > figcaption { font-size: 13px; font-weight: 600; margin-bottom: 16px; }
+.arch-memory-local { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 1px solid #d9e3e7; }
+.arch-memory .arch-fact { padding: 18px 8px; min-height: 100px; }
+.arch-memory .arch-fact strong { font-size: 20px; color: #386f85; }
+.arch-memory-arrow { display: flex; justify-content: center; color: #737b80; padding: 18px 0; }
+.arch-memory-global { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.arch-memory-global > div { display: flex; align-items: center; gap: 20px; }
+.arch-memory-global .arch-fact { flex: 1; }
+.arch-carveout { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; padding: 14px 8px 0; font-size: 12px; color: #697077; }
+.arch-section-7 table { min-width: 350px; }
+.arch-section-8 .arch-section-body > .arch-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+.arch-section-8 .arch-content > p { margin: 0; padding-bottom: 14px; border-bottom: 1px solid #edf0ee; }
+.arch-section-8 .arch-content > .table-scroll { grid-column: 1 / -1; }
+.arch-related { padding: 28px 0 0; margin-top: 12px; }
+.arch-related h2 { font-size: 20px; margin: 0 0 14px; }
+.arch-related > div { display: flex; gap: 12px 24px; flex-wrap: wrap; }
+.arch-related a { display: flex; gap: 8px; align-items: center; font-size: 12px; }
+.arch-related a[aria-current] { color: #24292f; font-weight: 600; }
+.arch-legacy { margin-top: 16px; }
+.arch-comparison { padding: 26px 0 0; border-top: 1px solid #dce3df; margin-top: 24px; }
+.arch-comparison h2 { font-size: 18px; margin-bottom: 18px; }
+.arch-comparison table { min-width: 900px; }
+@media (max-width: 1200px) and (min-width: 761px) {
+  .arch-chip-layout { grid-template-columns: minmax(0, 1fr); }
+  .arch-chip-resources .arch-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .arch-sm-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .arch-row { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .arch-title h2 { font-size: 18px; }
+  .arch-chip-layout { grid-template-columns: minmax(0, 1fr); }
+  .arch-sm-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .arch-section-8 .arch-section-body > .arch-content { grid-template-columns: minmax(0, 1fr); }
+  .arch-section-body { padding-inline: 0; }
+  .arch-memory-local, .arch-memory-global { gap: 12px; }
+  .arch-memory .arch-fact { padding-inline: 4px; }
+  .arch-memory .arch-fact strong { font-size: 17px; }
+}

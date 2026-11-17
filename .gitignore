@@ -1,0 +1,39 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+
+# Runtime database, logs, and process state. The published initializer is database/bundle/.
+data/
+
+# Release staging
+release/staging/
+
+# OS
+.DS_Store
+
+# Historical product, design, research, and delivery documents.
+# Keep these on a local machine if needed. Do not publish them.
+/01_*.md
+/02_*.md
+/03_*.md
+/04_*.md
+/AGENTS.md
+/.trae/
+/docs/design/
+/docs/reports/
+/docs/manual_test/
+/docs/research/
+/docs/templates/
+/migration/
+/artifacts/

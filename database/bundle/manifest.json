@@ -1,0 +1,916 @@
+{
+  "format": "nsight-logical-1",
+  "created_at": "2026-11-02T15:25:23.324943+08:00",
+  "source": "SQLite read-only transaction including committed WAL",
+  "schema_version": "0003",
+  "table_order": [
+    "model_versions",
+    "hardware_versions",
+    "model_structure_snapshots",
+    "workload_designs",
+    "workload_design_revisions",
+    "workload_runs",
+    "workload_plans",
+    "workload_plan_details",
+    "alembic_version"
+  ],
+  "tables": {
+    "model_versions": {
+      "columns": [
+        "id",
+        "repo_id",
+        "revision",
+        "payload"
+      ],
+      "json_columns": [
+        "payload"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(100)",
+            1,
+            null,
+            1
+          ],
+          [
+            "repo_id",
+            "VARCHAR(200)",
+            1,
+            null,
+            0
+          ],
+          [
+            "revision",
+            "VARCHAR(40)",
+            1,
+            null,
+            0
+          ],
+          [
+            "payload",
+            "JSON",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "u",
+            "partial": 0,
+            "columns": [
+              "repo_id",
+              "revision"
+            ]
+          }
+        ],
+        "foreign_keys": []
+      },
+      "file": "model_versions.ndjson.gz",
+      "rows": 66,
+      "ndjson_sha256": "cfaa0fb1bef294b3e4a610616ebf4f6c561e334156f1eda73f8faca2c80945d0",
+      "content_sha256": "71db1131028700c7d40f25f3960a8194e51732d4e75828682e8b391f0c5a852b",
+      "file_sha256": "7f25535abab98489177f762dbb476136edb3b09f1957d439fb4fda8552d41c34"
+    },
+    "hardware_versions": {
+      "columns": [
+        "id",
+        "payload"
+      ],
+      "json_columns": [
+        "payload"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(100)",
+            1,
+            null,
+            1
+          ],
+          [
+            "payload",
+            "JSON",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          }
+        ],
+        "foreign_keys": []
+      },
+      "file": "hardware_versions.ndjson.gz",
+      "rows": 12,
+      "ndjson_sha256": "a50a87a906b1dc183e8cdb44b20fe77fdea6a7009f52de6218fc103c97d8ca9d",
+      "content_sha256": "386646ab3082a4c1be2352b318de50241bb0a0e965060479cc4a0960f8c25c37",
+      "file_sha256": "40f348f0fc00121abce99ef1135d247ba05c1ab4715931426568ed45f09d39d4"
+    },
+    "model_structure_snapshots": {
+      "columns": [
+        "id",
+        "model_id",
+        "payload"
+      ],
+      "json_columns": [
+        "payload"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "model_id",
+            "VARCHAR(100)",
+            1,
+            null,
+            0
+          ],
+          [
+            "payload",
+            "JSON",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "model_id"
+            ]
+          }
+        ],
+        "foreign_keys": [
+          [
+            "model_versions",
+            "model_id",
+            "id",
+            "NO ACTION",
+            "NO ACTION",
+            "NONE"
+          ]
+        ]
+      },
+      "file": "model_structure_snapshots.ndjson.gz",
+      "rows": 285,
+      "ndjson_sha256": "8d55cc38be44f5c7e80dff8a02d3e014d974b2d1bfd1c1409c535b33b14e3871",
+      "content_sha256": "fec6ee034d3617ae620cc69d3bf10033c3a08dbb057b3269302e3e11875afe01",
+      "file_sha256": "c30ce3378b79b89198b0692da43fc61021fc2c4382a3cc7471ecdc11a91d391b"
+    },
+    "workload_designs": {
+      "columns": [
+        "id",
+        "name",
+        "head_revision",
+        "created_at",
+        "updated_at",
+        "idempotency_key",
+        "request_hash"
+      ],
+      "json_columns": [],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "name",
+            "VARCHAR(100)",
+            1,
+            null,
+            0
+          ],
+          [
+            "head_revision",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            "created_at",
+            "VARCHAR(40)",
+            1,
+            null,
+            0
+          ],
+          [
+            "updated_at",
+            "VARCHAR(40)",
+            1,
+            null,
+            0
+          ],
+          [
+            "idempotency_key",
+            "VARCHAR(200)",
+            1,
+            null,
+            0
+          ],
+          [
+            "request_hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "created_at"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "u",
+            "partial": 0,
+            "columns": [
+              "idempotency_key"
+            ]
+          }
+        ],
+        "foreign_keys": []
+      },
+      "file": "workload_designs.ndjson.gz",
+      "rows": 3,
+      "ndjson_sha256": "59c9cf33287a36755091fe1d8df4acf4bab2e755ccadb0a96af7f791d1c89bba",
+      "content_sha256": "59c9cf33287a36755091fe1d8df4acf4bab2e755ccadb0a96af7f791d1c89bba",
+      "file_sha256": "66070e4316ca5ccd784a41345b67234105ddef40ed2b583b402a6cb1ba6523ae"
+    },
+    "workload_design_revisions": {
+      "columns": [
+        "id",
+        "design_id",
+        "revision_no",
+        "model_id",
+        "hardware_id",
+        "payload",
+        "input_hash",
+        "schema_version",
+        "created_at"
+      ],
+      "json_columns": [
+        "payload"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "design_id",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "revision_no",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            "model_id",
+            "VARCHAR(100)",
+            1,
+            null,
+            0
+          ],
+          [
+            "hardware_id",
+            "VARCHAR(100)",
+            1,
+            null,
+            0
+          ],
+          [
+            "payload",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "input_hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "schema_version",
+            "VARCHAR(50)",
+            1,
+            null,
+            0
+          ],
+          [
+            "created_at",
+            "VARCHAR(40)",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "u",
+            "partial": 0,
+            "columns": [
+              "design_id",
+              "revision_no"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "design_id"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          }
+        ],
+        "foreign_keys": [
+          [
+            "hardware_versions",
+            "hardware_id",
+            "id",
+            "NO ACTION",
+            "RESTRICT",
+            "NONE"
+          ],
+          [
+            "model_versions",
+            "model_id",
+            "id",
+            "NO ACTION",
+            "RESTRICT",
+            "NONE"
+          ],
+          [
+            "workload_designs",
+            "design_id",
+            "id",
+            "NO ACTION",
+            "CASCADE",
+            "NONE"
+          ]
+        ]
+      },
+      "file": "workload_design_revisions.ndjson.gz",
+      "rows": 12,
+      "ndjson_sha256": "dc8cc242fd3cdb2922b6f080d0ac39447322756bf2aaebd9115fbfa1cddaee2d",
+      "content_sha256": "9ba391fc7d2087ffb146c85d73d28a5f58b0d499fa2364b4f668eefc60b4a95d",
+      "file_sha256": "f225e37c51eb9561d15eb770b7ffd431341624654e911831fc90a5eb3a5bd29a"
+    },
+    "workload_runs": {
+      "columns": [
+        "id",
+        "revision_id",
+        "structure_snapshot_id",
+        "status",
+        "idempotency_key",
+        "request_hash",
+        "input_hash",
+        "frozen_input",
+        "versions",
+        "queued_at",
+        "started_at",
+        "finished_at",
+        "lease_expires_at",
+        "owner",
+        "attempt",
+        "progress",
+        "error",
+        "result_manifest"
+      ],
+      "json_columns": [
+        "frozen_input",
+        "versions",
+        "progress",
+        "error",
+        "result_manifest"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "revision_id",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "structure_snapshot_id",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "status",
+            "VARCHAR(30)",
+            1,
+            null,
+            0
+          ],
+          [
+            "idempotency_key",
+            "VARCHAR(200)",
+            1,
+            null,
+            0
+          ],
+          [
+            "request_hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "input_hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "frozen_input",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "versions",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "queued_at",
+            "VARCHAR(40)",
+            1,
+            null,
+            0
+          ],
+          [
+            "started_at",
+            "VARCHAR(40)",
+            0,
+            null,
+            0
+          ],
+          [
+            "finished_at",
+            "VARCHAR(40)",
+            0,
+            null,
+            0
+          ],
+          [
+            "lease_expires_at",
+            "VARCHAR(40)",
+            0,
+            null,
+            0
+          ],
+          [
+            "owner",
+            "VARCHAR(64)",
+            0,
+            null,
+            0
+          ],
+          [
+            "attempt",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            "progress",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "error",
+            "JSON",
+            0,
+            null,
+            0
+          ],
+          [
+            "result_manifest",
+            "JSON",
+            0,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "u",
+            "partial": 0,
+            "columns": [
+              "idempotency_key"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "queued_at"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "revision_id"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "status"
+            ]
+          }
+        ],
+        "foreign_keys": [
+          [
+            "model_structure_snapshots",
+            "structure_snapshot_id",
+            "id",
+            "NO ACTION",
+            "RESTRICT",
+            "NONE"
+          ],
+          [
+            "workload_design_revisions",
+            "revision_id",
+            "id",
+            "NO ACTION",
+            "CASCADE",
+            "NONE"
+          ]
+        ]
+      },
+      "file": "workload_runs.ndjson.gz",
+      "rows": 16,
+      "ndjson_sha256": "1c77fd01ff1e161dc8458b288c584d40c98f087efd470f208a742a1b04ee5893",
+      "content_sha256": "ccae70f4ff4d3f11b3f4c35d037b2617ec03672a03dc881d3f1d28573a387701",
+      "file_sha256": "4b828d6c7b5b0e8db100122e307accdbfdd041adfbbd9930de8fc520cfc2e593"
+    },
+    "workload_plans": {
+      "columns": [
+        "id",
+        "run_id",
+        "candidate_key",
+        "rank",
+        "summary",
+        "result_hash"
+      ],
+      "json_columns": [
+        "summary"
+      ],
+      "primary_key": [
+        "id"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "run_id",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ],
+          [
+            "candidate_key",
+            "VARCHAR(200)",
+            1,
+            null,
+            0
+          ],
+          [
+            "rank",
+            "INTEGER",
+            1,
+            null,
+            0
+          ],
+          [
+            "summary",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "result_hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "id"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "rank"
+            ]
+          },
+          {
+            "unique": 1,
+            "origin": "u",
+            "partial": 0,
+            "columns": [
+              "run_id",
+              "candidate_key"
+            ]
+          },
+          {
+            "unique": 0,
+            "origin": "c",
+            "partial": 0,
+            "columns": [
+              "run_id"
+            ]
+          }
+        ],
+        "foreign_keys": [
+          [
+            "workload_runs",
+            "run_id",
+            "id",
+            "NO ACTION",
+            "CASCADE",
+            "NONE"
+          ]
+        ]
+      },
+      "file": "workload_plans.ndjson.gz",
+      "rows": 24,
+      "ndjson_sha256": "bd6746b65365b821c4725e4477a08255c1542798c12d487ba1fe9be43c60f0f7",
+      "content_sha256": "7159f0edb48b7ac35e9f5d5ecb2a3f191b6025e4ac9eaf7f4088e966ec665cbe",
+      "file_sha256": "51a9068c5311f9ed36352774a6e9cebd571be7500b088a779d2df906bca27bdd"
+    },
+    "workload_plan_details": {
+      "columns": [
+        "plan_id",
+        "kind",
+        "chunk_key",
+        "payload",
+        "hash"
+      ],
+      "json_columns": [
+        "payload"
+      ],
+      "primary_key": [
+        "plan_id",
+        "kind",
+        "chunk_key"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "plan_id",
+            "VARCHAR(64)",
+            1,
+            null,
+            1
+          ],
+          [
+            "kind",
+            "VARCHAR(30)",
+            1,
+            null,
+            2
+          ],
+          [
+            "chunk_key",
+            "INTEGER",
+            1,
+            null,
+            3
+          ],
+          [
+            "payload",
+            "JSON",
+            1,
+            null,
+            0
+          ],
+          [
+            "hash",
+            "VARCHAR(64)",
+            1,
+            null,
+            0
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "plan_id",
+              "kind",
+              "chunk_key"
+            ]
+          }
+        ],
+        "foreign_keys": [
+          [
+            "workload_plans",
+            "plan_id",
+            "id",
+            "NO ACTION",
+            "CASCADE",
+            "NONE"
+          ]
+        ]
+      },
+      "file": "workload_plan_details.ndjson.gz",
+      "rows": 273,
+      "ndjson_sha256": "b3873b8a89df3392af91d7e1ebc338b3715079add77a65866a50cbc0111cf658",
+      "content_sha256": "b02db51cc17a65a2f689982b4ffe620e709d912ea11dffd2ea68972b12f53036",
+      "file_sha256": "dd870403d10e9b587fad7e34e1bcb37d10d0e0c0727c9db77b160f4518dc73fe"
+    },
+    "alembic_version": {
+      "columns": [
+        "version_num"
+      ],
+      "json_columns": [],
+      "primary_key": [
+        "version_num"
+      ],
+      "structure": {
+        "columns": [
+          [
+            "version_num",
+            "VARCHAR(32)",
+            1,
+            null,
+            1
+          ]
+        ],
+        "indexes": [
+          {
+            "unique": 1,
+            "origin": "pk",
+            "partial": 0,
+            "columns": [
+              "version_num"
+            ]
+          }
+        ],
+        "foreign_keys": []
+      },
+      "file": "alembic_version.ndjson.gz",
+      "rows": 1,
+      "ndjson_sha256": "6dbc3f85f6b5fe704705e9ac7978de5373f6505360bc49402bf35ce346cd301a",
+      "content_sha256": "6dbc3f85f6b5fe704705e9ac7978de5373f6505360bc49402bf35ce346cd301a",
+      "file_sha256": "f1aece9f046d8ea0ee3c3f45fa8c39715b73cb537771c87c648c31f52857f008"
+    }
+  },
+  "files": {
+    "schema.sql": "46ecc613e6db221170c5e8d20d43f4598a6542d1cdbb0a23b1207cd1ae1fc3e8",
+    "full.sql.gz": "ddd24865a3a14e6fb8998705d3b7b7797f83f3faf522f941d3d251cc28b2b477"
+  },
+  "integrity_check": "ok",
+  "foreign_key_check": [],
+  "active_runs": 0
+}
