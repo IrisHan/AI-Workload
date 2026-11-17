@@ -6,7 +6,7 @@ The project is still in development. Version 1.0 is planned for 2027. This repos
 
 The application has no login. It listens only on `127.0.0.1`.
 
-![Uploading 截屏2026-11-18 01.16.22.png…]()## Choose how to run it
+## Choose how to run it
 
 | Goal | Start here |
 |---|---|
